@@ -1,6 +1,7 @@
 import cors from "cors";
 import express, { Application } from "express";
 import { mainApp } from "./mainApp";
+import { mainConnection } from "./utils/dbConfig";
 
 const port: number = 2213;
 const app: Application = express();
@@ -8,6 +9,7 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 mainApp(app);
+mainConnection();
 const Server = app.listen(port, () => {
   console.log("Connected");
 });
